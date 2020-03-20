@@ -1,0 +1,22 @@
+{
+  "name": "plix-backend",
+  "version": "1.0.0",
+  "description": "This is Plix APIs provider ",
+  "main": "App.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juespinoza/plix-backend.git"
+  },
+  "keywords": [
+    "movies"
+  ],
+  "author": "Julia Espinoza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juespinoza/plix-backend/issues"
+  },
+  "homepage": "https://github.com/juespinoza/plix-backend#readme"
+}

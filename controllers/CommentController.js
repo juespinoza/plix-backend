@@ -3,19 +3,13 @@ const bodyParser = require('body-parser');
 
 let getCommentsByMovieId = (request, response) => {
     let movieId = { movieId: request.body.movieId };
-    console.log('searching for movieId', movieId)
-    Comments.find(movieId, (err, commentsList) => {
-        if (commentsList.length > 0) {
-            response.status(200).send(commentsList);
-            console.log('getCommentsByMovieId response: ', commentsList);
+    Comments.find(movieId, (error, commentsList) => {
+        if (error) {
+            response.status(500).send(error);
+            console.log('ERROR getting comments: ', error);
         } else {
-            if (commentsList.length === 0) {
-                response.status(200).send(commentsList);
-            }
-        }
-        if (err) {
-            response.status(500).send(err);
-            console.log('getCommentsByMovieId error', err);
+            response.status(200).send(commentsList);
+            console.log('User found: ', userData);
         }
     });
 };

@@ -5,7 +5,9 @@ const cors = require('cors');
 
 // Initialization and connection
 const app = express();
-const dbUrl = "mongodb+srv://plix_backend:%402P%5Ex5o%2A@learning-cluster-46lvh.mongodb.net/plix?retryWrites=true&w=majority";
+const db_name = process.env.DATABASE_USER;
+const db_password = process.env.DATABASE_PASSWORD;
+const dbUrl = "mongodb+srv://"+db_name+":"+db_password+"@learning-cluster-46lvh.mongodb.net/plix?retryWrites=true&w=majority";
 const options = { useNewUrlParser: true, connectTimeoutMS:20000, useUnifiedTopology: true };
 const mongoose = require('mongoose');
 mongoose.connect(dbUrl, options).then(

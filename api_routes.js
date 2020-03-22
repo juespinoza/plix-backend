@@ -1,5 +1,6 @@
 let router = require('express').Router();
-let apiController = require('./controllers/apiController');
+let UserController = require('./controllers/UserController');
+let CommentController = require('./controllers/CommentController');
 
 router.get('/', (request, response) => {
     response.json({
@@ -7,28 +8,41 @@ router.get('/', (request, response) => {
         message: 'Welcome to Plix.',
     });
 });
-router.get('/readUser', (request, response) => {
-    console.log("read");
-    apiController.getUsers(request,response);
-});
-router.post('/readUser/?idUser', (request, response) => {
-    console.log("read a single user");
-    apiController.getUserById(request, response);
+
+// Users
+router.post('/userByEmail/?idUser', (request, response) => {
+    console.log("getting user: ", request.body);
+    UserController.getUserByEmail(request, response);
 });
 router.post('/createUser/User', (request, response) => {
-    console.log(request.body);
-    apiController.addUser(request, response);
-});
-router.post('/createUser/User', (request, response) => {
-    console.log(request.body);
-    apiController.addUser(request, response);
+    console.log('creating user: ', request.body);
+    UserController.createUser(request, response);
 });
 router.post('/updateUser/User', (request, response) => {
-    apiController.updateUser(request, response);
+    UserController.updateUser(request, response);
 });
 router.delete('/deleteUser/User', (request, response) => {
-    apiController.deleteUser(request, response);
+    UserController.deleteUser(request, response);
 });
+
+// Comments
+router.get('/commentByMovie/Comment', (request, response) => {
+    console.log('getting comment: ', request.body);
+    CommentController.getCommentsByMovieId(request, response);
+});
+router.get('/commentByUser/Comment', (request, response) => {
+    console.log('getting comment: ', request.body);
+    CommentController.getCommentByUserEmail(request, response);
+});
+router.post('/createComment/Comment', (request, response) => {
+    console.log('creating comment: ', request.body);
+    CommentController.createComment(request, response);
+});
+router.delete('/deleteComment/Comment', (request, response) => {
+    console.log('deleting comment: ', request.body);
+    CommentController.deleteCommentByUserEmail(request, response);
+});
+
 
 // Export API routes
 module.exports = router;

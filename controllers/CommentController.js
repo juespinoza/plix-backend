@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 
 let getCommentsByMovieId = (request, response) => {
     let movieId = { movieId: request.body.movieId };
+    console.log('searching for movieId', movieId)
     Comments.find(movieId, (err, commentsList) => {
         if (commentsList.length > 0) {
             response.status(200).send(commentsList);

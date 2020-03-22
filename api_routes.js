@@ -10,7 +10,7 @@ router.get('/', (request, response) => {
 });
 
 // Users
-router.post('/userByEmail/?idUser', (request, response) => {
+router.post('/userByEmail/User', (request, response) => {
     console.log("getting user: ", request.body);
     UserController.getUserByEmail(request, response);
 });

@@ -2,21 +2,18 @@ const Users = require('../models/UserModel');
 const bodyParser = require('body-parser');
 
 let getUserForLogin = (request, response) => {
-    let user = {
-        email: request.body.email,
-        password: request.body.password,
-    }
-    Users.find(user, (error, usersList) => {
-        if (usersList.length === 1) {
-            response.status(200).send(usersList[0]);
-            console.log('User found: ', usersList[0]);
-        } else {
-            response.status(200).send(null);
-            console.log('User not found for data: ', user);
-        }
+    let user = { email: request.body.email };
+    Users.findOne(user, (error, userData) => {
         if (error) {
             response.status(500).send(error);
             console.log('ERROR in user login: ', error);
+        } else {
+            if (request.body.password !== userData.password){
+                response.status(500).send('Wrong password');
+            } else {
+                response.status(200).send(userData);
+            }
+            console.log('User found: ', userData);
         }
     });
 };

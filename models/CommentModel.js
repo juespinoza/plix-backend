@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const commentSchema = new Schema({
     username: String,
     email: String,
-    movieId: Number,
+    movieId: String,
     comment: String,
     createdAt: Date,
 });

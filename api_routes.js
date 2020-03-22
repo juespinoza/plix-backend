@@ -10,6 +10,10 @@ router.get('/', (request, response) => {
 });
 
 // Users
+router.post('/userLogin/User', (request, response) => {
+    console.log("getting user for login: ", request.body);
+    UserController.getUserForLogin(request, response);
+});
 router.post('/userByEmail/User', (request, response) => {
     console.log("getting user: ", request.body);
     UserController.getUserByEmail(request, response);

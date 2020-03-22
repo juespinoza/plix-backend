@@ -30,11 +30,11 @@ router.delete('/deleteUser/User', (request, response) => {
 });
 
 // Comments
-router.get('/commentByMovie/Comment', (request, response) => {
+router.post('/commentByMovie/Comment', (request, response) => {
     console.log('getting comment: ', request.body);
     CommentController.getCommentsByMovieId(request, response);
 });
-router.get('/commentByUser/Comment', (request, response) => {
+router.post('/commentByUser/Comment', (request, response) => {
     console.log('getting comment: ', request.body);
     CommentController.getCommentByUserEmail(request, response);
 });

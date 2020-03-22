@@ -91,4 +91,4 @@ let deleteUser = (request, response) => {
     });
 }
 
-module.exports = { getUserByEmail, createUser, updateUser, deleteUser };
+module.exports = { getUserForLogin, getUserByEmail, createUser, updateUser, deleteUser };

@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.use(cors());
 
-const port = process.env.PORT || 8081;
+const port = process.env.PORT || 8080;
 app.get('/', (req, res) => res.send('This is the API repository for Plix'));
 app.use('/plix_api', apiRoutes);
 app.listen(port, () => { console.log('Running Plix backend on port: '+ port) });

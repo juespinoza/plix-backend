@@ -8,10 +8,10 @@ let getUserForLogin = (request, response) => {
     }
     Users.find(user, (error, usersList) => {
         if (usersList.length === 1) {
-            response.send(200).send(usersList[0]);
+            response.status(200).send(usersList[0]);
             console.log('User found: ', usersList[0]);
         } else {
-            response.send(200).send(null);
+            response.status(200).send(null);
             console.log('User not found for data: ', user);
         }
         if (error) {

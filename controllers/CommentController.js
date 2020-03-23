@@ -10,7 +10,7 @@ let getCommentsByMovieId = (request, response) => {
             console.log('ERROR getting comments: ', error);
         } else {
             response.status(200).send(commentsList);
-            console.log('User found: ', userData);
+            console.log('User found: ', commentsList);
         }
     });
 };
